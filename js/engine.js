@@ -189,8 +189,8 @@ function obslugaWirusa(state, player, card, action, sila) {
   if (card.color !== 'wild' && organ.color !== card.color && organ.color !== 'wild') {
     return { ok: false, blad: 'Kolory się nie zgadzają.' };
   }
-  if (organ.status === 'immune') {
-    return { ok: false, blad: 'Ten organ jest uodporniony (podwójne leczenie) — nie można go zaatakować.' };
+  if (organ.status === 'immune' && sila < 2) {
+    return { ok: false, blad: 'Ten organ jest uodporniony — zwykły wirus na niego nie działa.' };
   }
 
   return { ok: true, ...zaatakujOrgan(state, player, target, organ, sila) };
@@ -203,7 +203,12 @@ function zaatakujOrgan(state, atakujacy, wlasciciel, organ, sila) {
   return {};
   }
   if (organ.status === 'immune') {
-    dodajLog(state, `${atakujacy.nick} próbował(a) zaatakować odporny organ gracza ${wlasciciel.nick} — bez efektu.`);
+    if (sila >= 2) {
+      organ.status = 'clean';
+      dodajLog(state, `💥 ${atakujacy.nick} zbił(a) odporność organu (${organ.color}) gracza ${wlasciciel.nick} podwójnym wirusem!`);
+    } else {
+      dodajLog(state, `${atakujacy.nick} próbował(a) zaatakować odporny organ gracza ${wlasciciel.nick} — bez efektu.`);
+    }
     return {};
   }
   if (organ.status === 'quarantine') {
