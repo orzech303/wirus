@@ -78,4 +78,23 @@ window.addEventListener('DOMContentLoaded', () => {
   } else {
     pokazEkran('landing');
   }
+
+  const rulesModal = document.getElementById('rules-modal');
+const closeRulesBtn = document.getElementById('rules-modal-close');
+
+document.querySelectorAll('.btn-help').forEach((btn) => {
+  btn.onclick = () => {
+    rulesModal.classList.remove('hidden');
+  };
+});
+
+closeRulesBtn.onclick = () => {
+  rulesModal.classList.add('hidden');
+};
+
+rulesModal.onclick = (e) => {
+  if (e.target === rulesModal) {
+    rulesModal.classList.add('hidden');
+  }
+}; 
 });
