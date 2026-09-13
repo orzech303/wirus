@@ -366,9 +366,31 @@ function widokDlaGracza(state, playerId) {
   };
 }
 
+function zresetujStanGry(state) {
+  state.deck = shuffle(buildDeck());
+  state.discard = [];
+  state.turnIndex = 0;
+  state.turnPlayedCard = false;
+  state.winnerId = null;
+  state.log = [];
+
+  state.players.forEach((p) => {
+    p.hand = [];
+    p.organs = {};
+  });
+
+  state.players.forEach((p) => {
+    p.hand = dobierzKarty(state, 3);
+  });
+
+  dodajLog(state, 'Nowa runda rozpoczęta! Powodzenia.');
+  return state;
+}
+
 if (typeof window !== 'undefined') {
   window.WirusEngine = {
     stworzStanGry,
+    zresetujStanGry,
     wykonajAkcje,
     widokDlaGracza,
     aktualnyGracz,
