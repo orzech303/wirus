@@ -282,3 +282,11 @@ p { margin: 0 0 4px; color: var(--ink-soft); }
 .rules-content li {
   margin-bottom: 4px;
 }
+#rules-modal {
+  align-items: flex-start;
+  padding: 20px 12px;
+}
+#rules-modal .modal-box {
+  border-radius: var(--radius-lg);
+  margin-top: 10px;
+}
