@@ -261,3 +261,24 @@ p { margin: 0 0 4px; color: var(--ink-soft); }
   .lobby-columns { flex-direction: column; }
   .room-code { font-size: 32px; }
 }
+
+/* Modal instrukcji */
+.rules-box {
+  max-height: 80vh;
+}
+.rules-content {
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+}
+.rules-content h4 {
+  margin: 12px 0 4px;
+  color: var(--brand-dark);
+}
+.rules-content ul {
+  padding-left: 20px;
+  margin: 6px 0;
+}
+.rules-content li {
+  margin-bottom: 4px;
+}
