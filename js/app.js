@@ -61,8 +61,14 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('btn-discard-mode').onclick = () => Client.toggleDiscardMode();
   document.getElementById('btn-confirm-discard').onclick = () => Client.confirmDiscard();
   document.getElementById('target-modal-close').onclick = () => ukryjModal();
-  document.querySelectorAll('.btn-new-game').forEach((b) => {
-    b.onclick = () => window.location.href = window.location.pathname;
+  document.querySelectorAll('.btn-restart-game').forEach((b) => {
+    b.onclick = () => {
+      if (Host.started) {
+        Host.restartGame();
+      } else {
+        Client.send({ type: 'restart' });
+      }
+    };
   });
 
   const params = new URLSearchParams(window.location.search);
