@@ -141,6 +141,8 @@ const Client = {
       const zwyciezca = s.players.find((p) => p.id === s.winnerId);
       document.getElementById('client-winner-banner').classList.remove('hidden');
       document.getElementById('client-winner-name').textContent = zwyciezca.nick + (zwyciezca.id === this.playerId ? ' (Ty!)' : '');
+    } else {
+      document.getElementById('client-winner-banner').classList.add('hidden');
     }
   },
 
