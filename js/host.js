@@ -154,8 +154,21 @@ const Host = {
     this.renderTable();
   },
 
+  restartGame() {
+    if (!this.state) return;
+    WirusEngine.zresetujStanGry(this.state);
+    document.getElementById('winner-banner').classList.add('hidden');
+    this.broadcastState();
+    this.renderTable();
+  }, 
+
   handleAction(conn, action) {
     if (!this.state) return;
+    if (action.type === 'restart') {
+      this.restartGame();
+      return;
+    }
+
     const playerId = conn.peer;
     const wynik = WirusEngine.wykonajAkcje(this.state, playerId, action);
     if (!wynik.ok) {
