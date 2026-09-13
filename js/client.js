@@ -194,8 +194,9 @@ const Client = {
           [...KOLORY, 'wild', 'prosthetic'].forEach((k) => {
             const o = p.organs[k];
             if (!o) return;
-            // Nie można atakować organu odpornego, w kwarantannie ani sztucznej ręki
-            if (o.status === 'immune' || o.status === 'quarantine' || o.status === 'prosthetic') return;
+            if (o.status === 'quarantine' || o.status === 'prosthetic') return;
+            if (card.type === 'wirus' && o.status === 'immune') return;
+
             if (card.color === 'wild' || o.color === card.color || o.color === 'wild') {
               opcje.push({ etykieta: `${p.nick} — ${opisOrganu(o)}`, targetPlayerId: p.id, targetColor: k });
             }
