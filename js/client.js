@@ -295,7 +295,7 @@ function kolorTla(card) {
     // border-color nie obsługuje gradientów — dla karty tęczowej używamy stałego akcentu
     return card.color === 'wild' ? '#fd03e4' : KOLOR_META[card.color].hex;
   }
-  return 'var(--brand)';
+  return 'var(--action-card)';
 }
 
 /* ---------- Modale wyboru celu ---------- */
