@@ -134,7 +134,7 @@ const Client = {
     // przycisk trybu odrzucania
     const discardBtn = document.getElementById('btn-discard-mode');
     discardBtn.classList.toggle('hidden', !mojaTura || s.turnPlayedCard);
-    discardBtn.textContent = this.discardMode ? 'Anuluj odrzucanie' : 'Odrzuć karty zamiast grać';
+    discardBtn.textContent = this.discardMode ? 'Anuluj odrzucanie' : 'Odrzuć 1 kartę zamiast grać';
     document.getElementById('btn-confirm-discard').classList.toggle('hidden', !this.discardMode);
 
     if (s.winnerId) {
@@ -151,8 +151,12 @@ const Client = {
     if (this.state.turnPlayedCard) { pokazToast('W tej turze zagrano już kartę.'); return; }
 
     if (this.discardMode) {
-      if (this.selectedDiscards.has(card.id)) this.selectedDiscards.delete(card.id);
-      else this.selectedDiscards.add(card.id);
+      if (this.selectedDiscards.has(card.id)) {
+        this.selectedDiscards.delete(card.id);
+      } else {
+        this.selectedDiscards.clear();
+        this.selectedDiscards.add(card.id);
+      }
       this.render();
       return;
     }
