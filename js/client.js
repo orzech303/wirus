@@ -188,6 +188,7 @@ const Client = {
 
       case 'wirus':
       case 'podwojny_wirus': {
+        const { czyKolorPasuje } = window.WirusCards;
         const opcje = [];
         s.players.forEach((p) => {
           if (p.id === this.playerId) return;
@@ -196,8 +197,7 @@ const Client = {
             if (!o) return;
             if (o.status === 'quarantine' || o.status === 'prosthetic') return;
             if (card.type === 'wirus' && o.status === 'immune') return;
-
-            if (card.color === 'wild' || o.color === card.color || o.color === 'wild') {
+            if (czyKolorPasuje(card.color, o.color)) {
               opcje.push({ etykieta: `${p.nick} — ${opisOrganu(o)}`, targetPlayerId: p.id, targetColor: k });
             }
           });
@@ -209,11 +209,12 @@ const Client = {
 
       case 'lek':
       case 'podwojny_lek': {
+        const { czyKolorPasuje } = window.WirusCards;
         const opcje = [];
         [...KOLORY, 'wild'].forEach((k) => {
           const o = ja.organs[k];
           if (!o || o.status === 'immune' || o.status === 'quarantine') return;
-          if (card.color === 'wild' || o.color === card.color || o.color === 'wild') {
+          if (czyKolorPasuje(card.color, o.color)) {
             opcje.push({ etykieta: opisOrganu(o), targetColor: k });
           }
         });
@@ -226,7 +227,6 @@ const Client = {
         const opcje = [];
         [...KOLORY, 'wild', 'prosthetic'].forEach((k) => {
           const o = ja.organs[k];
-          // Wyświetl tylko i wyłącznie czyste organy
           if (!o || o.status !== 'clean') return;
           opcje.push({ etykieta: opisOrganu(o), targetColor: k });
         });
