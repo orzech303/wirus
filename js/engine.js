@@ -186,8 +186,9 @@ function obslugaWirusa(state, player, card, action, sila) {
   if (!target) return { ok: false, blad: 'Nie znaleziono celu.' };
   const organ = target.organs[action.targetColor];
   if (!organ) return { ok: false, blad: 'Wybrany gracz nie ma tego organu.' };
-  if (card.color !== 'wild' && organ.color !== card.color && organ.color !== 'wild') {
-    return { ok: false, blad: 'Kolory się nie zgadzają.' };
+  const { czyKolorPasuje } = window.WirusCards;
+  if (!czyKolorPasuje(card.color, organ.color)) {
+    return { ok: false, blad: 'Kolory się nie zgadzają (na tęczowy organ działa tylko tęczowy wirus).' };
   }
   if (organ.status === 'immune' && sila < 2) {
     return { ok: false, blad: 'Ten organ jest uodporniony — zwykły wirus na niego nie działa.' };
@@ -252,8 +253,9 @@ function obslugaLeku(state, player, card, action, sila) {
   const organ = player.organs[action.targetColor];
   if (!organ) return { ok: false, blad: 'Nie masz tego organu.' };
   if (organ.status === 'prosthetic') return { ok: false, blad: 'Sztuczna ręka jest mechaniczna, nie potrzebuje leków.' };
-  if (card.color !== 'wild' && organ.color !== card.color && organ.color !== 'wild') {
-    return { ok: false, blad: 'Kolory się nie zgadzają.' };
+  const { czyKolorPasuje } = window.WirusCards;
+  if (!czyKolorPasuje(card.color, organ.color)) {
+    return { ok: false, blad: 'Kolory się nie zgadzają (tęczowy organ leczy tylko tęczowy lek).' };
   }
   if (organ.status === 'immune') return { ok: false, blad: 'Ten organ jest już odporny.' };
 
