@@ -146,6 +146,12 @@ function pobierzIkoneKarty(card) {
   return TYP_META[card.type] ? TYP_META[card.type].ikona : '🃏';
 }
 
+function czyKolorPasuje(kartaColor, organColor) {
+  if (kartaColor === 'wild') return true;
+  if (organColor === 'wild') return false;
+  return kartaColor === organColor;
+}
+
 if (typeof window !== 'undefined') {
-  window.WirusCards = { KOLORY, KOLOR_META, TYP_META, nazwaKarty, buildDeck, shuffle };
+  window.WirusCards = { KOLORY, KOLOR_META, TYP_META, nazwaKarty, buildDeck, shuffle, czyKolorPasuje };
 }
