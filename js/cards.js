@@ -9,7 +9,7 @@ const KOLOR_META = {
   yellow: { nazwa: 'Żółty',     organ: 'Kość',     ikona: '🦴', hex: '#EDED09' },
   green:  { nazwa: 'Zielony',   organ: 'Płuca',    ikona: '🫁', hex: '#09ED15' },
   blue:   { nazwa: 'Niebieski', organ: 'Mózg',     ikona: '🧠', hex: '#09C3ED' },
-  prosthetic: { nazwa: 'Sztuczna ręka', organ: 'Sztuczna ręka', ikona: '🦾', hex: '#777777' },
+  prosthetic: { nazwa: 'Szary', organ: 'Sztuczna ręka', ikona: '🦾', hex: '#777777' },
   wild:   { nazwa: 'Tęczowy',   organ: 'Wielonarząd', ikona: '👤', hex: 'wild' }
 };
 
