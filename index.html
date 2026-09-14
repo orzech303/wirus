@@ -158,7 +158,7 @@
 <div id="rules-modal" class="modal-overlay hidden">
   <div class="modal-box rules-box">
     <div class="modal-head">
-      <h3>📖 Zasady gry Wirus!</h3>
+      <h3>📖 Jak grać?</h3>
       <button id="rules-modal-close" class="btn-icon">✕</button>
     </div>
     <div class="modal-body rules-content">
@@ -166,18 +166,28 @@
       <p>Zbuduj ciało składające się z <b>4 zdrowych organów</b> w różnych kolorach (czerwony, żółty, zielony, niebieski, tęczowy lub bioniczny).</p>
       
       <h4>🃏 Przebieg tury</h4>
-      <p>W swojej turze możesz <b>zagrać 1 kartę</b> ALBO <b>odrzucić dowolną liczbę kart</b> i dobrać nowe. Na koniec tury dobierasz do 3 kart w ręku.</p>
+      <p>W swojej turze możesz <b>zagrać 1 kartę</b> albo <b>odrzucić wybrane karty</b> i dobrać nowe. Na koniec tury dobierasz do 3 kart w ręku.</p>
       
-      <h4>🧬 Rodzaje kart</h4>
+      <h4>🧬 Karty podstawowe i specjalne:</h4>
       <ul>
-        <li><b>Organy:</b> Kładziesz przed sobą. Każdy w innym kolorze.</li>
-        <li><b>Wirusy:</b> Zarażają organ przeciwnika w tym samym kolorze. Drugi wirus niszczy organ!</li>
-        <li><b>Leki:</b> Leczą zainfekowany organ. Drugi lek uodparnia organ na zawsze.</li>
-        <li><b>Kradzież:</b> Kradnie organ innemu graczowi (chyba że jest uodporniony).</li>
-        <li><b>Zamiana:</b> Wymiana wszystkich organów z innym graczem.</li>
-        <li><b>Zarażenie:</b> Przenosi wirusa ze swojego organu na organ rywala.</li>
-        <li><b>Kwarantanna:</b> Chroni organ przed wirusami.</li>
-        <li><b>Sztuczna ręka:</b> Zastępuje dowolny organ i jest niewrażliwa na wirusy.</li>
+        <li><b>Organy:</b> Kładziesz przed sobą. Każdy w innym kolorze (maksymalnie 4).</li>
+        <li><b>Wirusy:</b> Zarażają organ w tym samym kolorze. Drugi wirus niszczy organ!</li>
+        <li><b>Leki:</b> Szczepią zdrowy organ lub leczą zainfekowany. Drugi lek zwiększa odporność.</li>
+        <li><b>Podwójny wirus:</b> Działa jak 2 wirusy naraz — od razu niszczy organ lub zbija odporność uodpornionego organu!</li>
+        <li><b>Podwójny lek:</b> Działa jak 2 leki naraz — uodparnia zdrowy organ (lub leczy i szczepi zainfekowany).</li>
+        <li><b>Kradzież organu:</b> Kradnie organ innemu graczowi (nie można ukraść organu odpornego ani takiego koloru, który już masz).</li>
+        <li><b>Zamiana ciał:</b> Wymiana <b>wszystkich organów</b< z wybranym graczem.</li>
+        <li><b>Zarażenie:</b> Przenosi wirusa z zainfekowanego organu na organ wybranego gracza.</li>
+        <li><b>Kwarantanna:</b> Chroni czysty organ przed wirusami (ale wciąż można go ukraść).</li>
+        <li><b>Sztuczna ręka:</b> Bioniczny organ — jest całkowicie niewrażliwy na wirusy i nie wymaga leczenia.</li>
+        <li><b>Wymiana ręki:</b> Odrzucasz wszystkie swoje karty z ręki, dobierasz 3 nowe i kończysz turę.</li>
+      </ul>
+
+      <h4>🌈 Zasady kart tęczowych:</h4>
+      <ul>
+        <li><b>Tęczowy wirus / Podwójny tęczowy wirus:</b> Może zaatakować organ w dowolnym kolorze.</li>
+        <li><b>Tęczowy lek / Podwójny tęczowy lek:</b> Może wyleczyć lub uodpornić organ w dowolnym kolorze.</li>
+        <li><b>Tęczowy organ:</b> Zastępuje dowolny kolor, ale można go leczyć i atakować <b>tylko tęczowymi kartami</b>!</li>
       </ul>
     </div>
   </div>
