@@ -151,14 +151,16 @@ function wykonajAkcje(state, playerId, action) {
 
 function obslugaOdrzucenia(state, player, action) {
   const ids = action.cardIds || [];
-  if (ids.length === 0) return { ok: false, blad: 'Wybierz co najmniej jedną kartę do odrzucenia.' };
+  if (ids.length === 0) return { ok: false, blad: 'Wybierz kartę do odrzucenia.' };
+  if (ids.length > 1) return { ok: false, blad: 'Możesz odrzucić tylko 1 kartę na turę.' };
+
   const odrzucone = [];
   for (const id of ids) {
     const c = usunKarteZReki(player, id);
     if (c) odrzucone.push(c);
   }
   state.discard.push(...odrzucone);
-  dodajLog(state, `${player.nick} odrzucił(a) ${odrzucone.length} kart(y) i dobiera nowe.`);
+  dodajLog(state, `${player.nick} wymienił(a) 1 kartę i dobiera nową.`);
   zakonczTure(state);
   return { ok: true, koniecTury: true };
 }
